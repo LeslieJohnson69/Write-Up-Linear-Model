@@ -43,12 +43,16 @@ basicNN + geom_point()
 cor(SIMS~ARM,data=data)
 ```
 
+The value is 0.58, a positive number that shows the line will move upwards towards the right.
+
 # Inferential  (Build linear model)
   
 ```{r}
 model.1 <- lm(SIMS~ARM,data=data)
 summary.lm(model.1)
 ```
+
+This equation for the prediction looks like -4.1+.05*ARM. The bigger the Adjusted R-squared the better the model.
 
 ```{r}
 newdata= data.frame(GRIP = 94, ARM = 88)
@@ -62,8 +66,8 @@ predict(model.1, newdata, interval = "prediction")
 basicNN + geom_point() + geom_smooth(method=lm)
 ```
 
-The equation for SIMS expalined by ARM is
-SIMS=4.1+.0545*ARM
+The equation for SIMS explained by ARM is
+SIMS=4.1+.0545*ARM. Every error displayed in this plot is an error. Take the distance between each point and square it. The sum of all the squared errors is the average mean error.
 
 ```{r}
 basicGG <- ggplot(data,aes(y=SIMS,x=GRIP))
@@ -73,6 +77,8 @@ basicGG <- ggplot(data,aes(y=SIMS,x=GRIP))
 ```{r}
 basicGG + geom_point()
 ```
+ 
+ 
   
 # Numerical results
 
