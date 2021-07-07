@@ -92,6 +92,8 @@ basicGG + geom_point()
 cor(SIMS~GRIP,data=data)
 ```
 
+The correlation is 0.63. This correlation is a bit smaller than the previous correlation between ARM.  
+
 # Inferential  (Build linear model)
   
 ```{r}
@@ -99,6 +101,9 @@ model.2 <- lm(SIMS~GRIP,data=data)
 summary.lm(model.2)
 predict(model.2, newdata, interval= "prediction")
 ```
+
+The Adjusted R-squared is 0.4053. Previously the number was 0.409
+Small standard error makes a successful model. This model is not as good as model 1 with ARM because the standard deviation is larger.
 
  # now add the model fit to our plot
   
