@@ -36,6 +36,8 @@ basicNN <- ggplot(data,aes(y=SIMS,x=ARM))
 ```{r}
 basicNN + geom_point()
 ```
+
+The y-axis is SIMS, and the x-axis is ARM. This plot shows there is a positive linear correlation. There is a positive correlation between ARM and SIMS shown in this plot. 
   
 # Numerical results
 
@@ -43,7 +45,7 @@ basicNN + geom_point()
 cor(SIMS~ARM,data=data)
 ```
 
-The value is 0.58, a positive number that shows the line will move upwards towards the right.
+The value is 0.68, a positive number that shows the line will move upwards towards the right.
 
 # Inferential  (Build linear model)
   
@@ -52,6 +54,7 @@ model.1 <- lm(SIMS~ARM,data=data)
 summary.lm(model.1)
 ```
 
+The residual standard error represents the standard deviation of error points in this regression linear model and the numbers that should be considered to create the prediction equation are the estimated  coefficients. 
 This equation for the prediction looks like -4.1+.05*ARM. The bigger the Adjusted R-squared the better the model.
 
 ```{r}
@@ -59,6 +62,7 @@ newdata= data.frame(GRIP = 94, ARM = 88)
 predict(model.1, newdata, interval = "prediction")
 ```
 
+This is a prediction interval. How far does one point vary from another if you take .7 away from 3.13. You would end up with approximately 2.3.
 
  # now add the model fit to our plot
   
@@ -67,7 +71,9 @@ basicNN + geom_point() + geom_smooth(method=lm)
 ```
 
 The equation for SIMS explained by ARM is
-SIMS=4.1+.0545*ARM. Every error displayed in this plot is an error. Take the distance between each point and square it. The sum of all the squared errors is the average mean error.
+SIMS=4.1+.0545*ARM.
+All dots traveling up are apart of that particular distribution. Every error displayed in this plot is an error. Take the distance between each point and square it. The sum of all the squared errors is the average mean error.
+To find the value of SIMS multiple the intercept by -4.095160 and the ARM value 0.054563.
 
 ```{r}
 basicGG <- ggplot(data,aes(y=SIMS,x=GRIP))
