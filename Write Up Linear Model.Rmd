@@ -140,8 +140,16 @@ The evaluation for the line that fits this is SIMS is equal to -4.1 + 0.5 * ARM
 
 ### model.1 with model.3 
 
+model.1 and model. 3 are nested   
+
 ### model.1 with model.2
 
+Model 2 is better than model 1 because more errors were corrected.
+
 ### model.2 with model.3
+
+model 2 is nested in model 3, the components in model 2 are also in model 3  
+
+
 
 
